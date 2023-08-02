@@ -8,6 +8,7 @@ Berikut adalah penjelasan prosesnya:
 
 3. Salin dan tempelkan kode berikut ke dalam editor skrip. Ini adalah fungsi JavaScript yang disebut `typeAndYear()`, yang bertugas membuat tabulasi silang data berdasarkan tipe dan jumlah kematian per tahun.
 
+<div>
 ```javascript
 function typeAndYear() {
   let ss = SpreadsheetApp.getActive();
@@ -53,6 +54,7 @@ function typeAndYear() {
     }
   }
 }
+</div>
 
 4. kemudian pastikan tidak ada kesalahan sintaks pada kode skrip tersebut. Jika ada kesalahan, perbaiki sebelum menyimpannya.
 
