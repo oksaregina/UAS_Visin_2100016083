@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grafik Jenis Bencana di Indonesia (2000-2022)</title>
+    <!-- Tambahkan link Chart.js di bawah ini -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary" style="padding: 8px; background-color: #4ea2fc;">
+        <p class="navbar-brand mb-0 text-right" style="font-size: 12pt; color: white;">
+          Regina Oksa
+        </p>
+    <div style="text-align: center;">
+        <h1 style="border: 2px solid #4ea2fc; padding: 10px; background-color: #f0f8ff;">Data Penyebab-Penyebab Kematian di Indonesia</h1>
+    </div>
+    <!-- Container untuk grafik linechart dan penjelasan -->
+    <div style="display: flex; align-items: center; border: 1px solid #ccc; padding: 10px; background-color: #f0f8ff;">
+        <div style="width: 65%; max-width: 800px;">
+            <canvas id="linechart" width="800" height="400"></canvas>
+        </div>
+        <div style="width: 35%; max-width: 400px; margin-left: 80px; text-align: justify;">
+            <h3 style="color: #4ea2fc;">Penjelasan:</h3>
+            <p style="max-width: 100%; margin: 0 auto;">Data menunjukkan jumlah kejadian bencana di Indonesia dari tahun 2000 hingga 2022.</p>
+            <p><strong>Bencana Alam:</strong></p>
+            <p>Pada tahun 2004, terjadi bencana gempa dan tsunami di Aceh dengan jumlah kejadian mencapai 166,698, dan di tahun 2011, hanya tercatat 172 kejadian bencana alam, sedangkan ada tahun 2016, jumlah kejadian meningkat menjadi 3,739 akibat banjir dan tanah longsor.</p>
+            <p><strong>Bencana Non Alam dan Penyakit:</strong></p>
+            <p>Puncak kejadian terjadi pada tahun 2021 dengan jumlah mencapai 138,519, dan pada tahun 2005 hingga 2007 juga memiliki tingkat kejadian yang tinggi, dengan masing-masing 121,063; 120,104; dan 88,713 kejadian.</p>
+            <p><strong>Bencana Sosial:</strong></p>
+            <p>Pada tahun 2006 dan 2010, terdapat masing-masing 1 dan 16 kejadian bencana sosial, dan pada tahun 2015, tercatat 45 kejadian bencana sosial.</p>
+            <p>Data ini memberikan gambaran tentang frekuensi dan jenis bencana yang telah terjadi di Indonesia selama 23 tahun terakhir.</p>
+        </div> 
+              
+    </div>
+
+    <script>
+        // Data dari tabel
+        const tahun = Array.from({length: 23}, (_, i) => 2000 + i);
+        const bencana_alam = [0, 0, 0, 0, 166698, 1973, 6960, 562, 262, 1447, 1306, 172, 174, 0, 0, 215, 442, 169, 3739, 352, 236, 583, 0];
+        const bencana_non_alam_dan_penyakit = [339, 324, 435, 633, 54046, 121063, 120104, 88713, 106035, 31661, 37922, 1967, 1595, 1145, 1199, 2096, 2156, 875, 1212, 14338, 37823, 138519, 12876];
+        const bencana_sosial = [0, 0, 0, 0, 0, 0, 1, 0, 1, 16, 33, 34, 65, 0, 0, 45, 26, 0, 25, 7, 4, 4, 0];
+        // Data baru untuk grafik linechart
+        const dataLine = [
+            [47, 99, 100, 261, 361, 509, 635, 788, 711, 331, 979, 597, 0, 0, 0, 0, 0, 0, 0, 614, 665, 688, 0],
+            [0, 0, 0, 0, 0, 0, 1196, 1599, 1187, 1420, 0, 597, 816, 871, 907, 1071, 1598, 493, 467, 919, 747, 705, 0],
+            [0, 0, 94, 128, 53, 0, 277, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 1801, 6469, 99, 14, 1209, 7, 1, 13, 0, 0, 2, 107, 4, 573, 64, 0, 121, 0],
+            [0, 0, 0, 0, 0, 0, 1784, 1883, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        ];
+
+        // Konfigurasi untuk grafik linechart
+        const optionsLine = {
+            scales: {
+                x: {
+                    stacked: true
+                },
+                y: {
+                    stacked: true,
+                    ticks: {
+                        beginAtZero: true // Mulai sumbu y dari angka 0
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Jumlah Kejadian Jenis Bencana di Indonesia (2000-2022)',
+                    font: {
+                        size: 16,
+                        weight: 'bold'
+                    }
+                },
+                legend: {
+                    position: 'top',
+                },
+            },
+            responsive: true, // Grafik menyesuaikan ukuran container
+            maintainAspectRatio: false, // Memastikan aspek rasio grafik tetap konsisten
+            animation: {
+                duration: 1000, // Durasi animasi ketika data berubah (dalam milidetik)
+                easing: 'easeInOutQuart', // Jenis animasi
+            }
+        };
+
+        // Membuat grafik barchart menggunakan Chart.js
+        var ctxLine = document.getElementById('linechart').getContext('2d');
+        var myLineChart = new Chart(ctxLine, {
+            type: 'line', // Ubah tipe grafik menjadi 'line'
+            data: {
+                labels: tahun ,
+                datasets: [
+                    {
+                        label: 'Bencana Alam',
+                        data: bencana_alam,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        pointRadius: 3, // Tambahkan tanda titik pada garis
+                        pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                        pointBorderColor: '#fff',
+                    },
+                    {
+                        label: 'Bencana Non Alam dan Penyakit',
+                        data: bencana_non_alam_dan_penyakit,
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 2,
+                        pointRadius: 3, // Tambahkan tanda titik pada garis
+                        pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                        pointBorderColor: '#fff',
+                    },
+                    {
+                        label: 'Bencana Sosial',
+                        data: bencana_sosial,
+                        backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 2,
+                        pointRadius: 3, // Tambahkan tanda titik pada garis
+                        pointBackgroundColor: 'rgba(255, 206, 86, 1)',
+                        pointBorderColor: '#fff',
+                    }
+                ]
+            },
+            options: optionsLine
+        });
+    </script>
+</body>
+</html>
