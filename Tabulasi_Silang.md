@@ -55,16 +55,17 @@ function typeAndYear() {
 }
 ```
 
-Setelah memastikan tidak ada kesalahan, simpan skrip dengan menekan "Ctrl + S".
+4. Setelah memastikan tidak ada kesalahan, simpan skrip dengan menekan "Ctrl + S".
 
-Klik tombol "jalankan" untuk menjalankan fungsi dan tunggu proses eksekusi fungsi selesai. Setelah selesai, akan ada lembar kerja baru dengan nama "Kematian di Indonesia Berdasarkan Tahun dan Tipe" terbentuk.
+5. Klik tombol "jalankan" untuk menjalankan fungsi dan tunggu proses eksekusi fungsi selesai. Setelah selesai, akan ada lembar kerja baru dengan nama "Kematian di Indonesia Berdasarkan Tahun dan Tipe" terbentuk.
 
-Lembar kerja baru tersebut akan berisi tabulasi silang data tentang penyebab dan jumlah kematian per tahun di Indonesia. Baris pertama akan berisi tipe-tipe penyebab kematian, sedangkan kolom pertama akan berisi tahun-tahun unik di mana laporan kematian dilaporkan.
+6. Lembar kerja baru tersebut akan berisi tabulasi silang data tentang penyebab dan jumlah kematian per tahun di Indonesia. Baris pertama akan berisi tipe-tipe penyebab kematian, sedangkan kolom pertama akan berisi tahun-tahun unik di mana laporan kematian dilaporkan.
 
-Berikut adalah hasil tabulasi silang data:
-
+7. Berikut adalah hasil tabulasi silang data:
+```javascript
 Type	2000	2001	2002	2003	2004	2005	2006	2007	2008	2009	2010	2011	2012	2013	2014	2015	2016	2017	2018	2019	2020	2021	2022
 Bencana Alam	0	0	0	0	166698	1973	6960	562	262	1447	1306	172	174	0	0	215	442	169	3739	352	236	583	0
 Bencana Non Alam dan Penyakit	339	324	435	633	54046	121063	120104	88713	106035	31661	37922	1967	1595	1145	1199	2096	2156	875	1212	14338	37823	138519	12876
 Bencana Sosial	0	0	0	0	0	0	1	0	1	16	33	34	65	0	0	45	26	0	25	7	4	4	0
 Dengan ini, Anda sudah berhasil membuat tabulasi silang data tentang penyebab dan jumlah kematian per tahun di Indonesia menggunakan Google Sheets dan Apps Script.
+```
