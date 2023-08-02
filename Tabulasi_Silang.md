@@ -53,7 +53,7 @@ function typeAndYear() {
     }
   }
 }
-'''
+javascript```
 
 4. kemudian pastikan tidak ada kesalahan sintaks pada kode skrip tersebut. Jika ada kesalahan, perbaiki sebelum menyimpannya.
 
