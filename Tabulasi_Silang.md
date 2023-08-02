@@ -1,4 +1,4 @@
-#Proses pembuatan tabulasi silang data tentang penyebab dan jumlah kematian per-tahun di Indonesia.#
+#Proses pembuatan tabulasi silang data tentang penyebab dan jumlah kematian per-tahun di Indonesia.
 
 Berikut adalah penjelasan prosesnya:
 
