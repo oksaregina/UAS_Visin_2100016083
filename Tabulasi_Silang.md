@@ -1,17 +1,15 @@
-Proses pembuatan tabulasi silang data tentang penyebab dan jumlah kematian per-tahun di Indonesia.
+# Ema Septian Hakim_2100016114
+# Tabulasi Silang Jumlah Kematian di Indonesia berdasarkan Tahun dan Tipe dari Data Penyebab Kematian di Indonesia.
 
-Berikut adalah penjelasan prosesnya:
+# Proses pembuatan tabulasi silang:
 
-1. Buka Google Sheets menggunakan link yang diberikan [Data Kematian di Indonesia](https://www.kaggle.com/datasets/hendratno/cause-of-death-in-indonesia).
-
-2. Klik pada menu "Ekstensi" dan pilih "Apps Script". Ini akan membuka editor skrip di Google Sheets.
-
-3. Salin dan tempelkan kode berikut ke dalam editor skrip. Ini adalah fungsi JavaScript yang disebut `typeAndYear()`, yang bertugas membuat tabulasi silang data berdasarkan tipe dan jumlah kematian per tahun.
-
-```javascript
+# 1. Buka Google Sheets
+# 2. Pilih menu "Extensions" > "Apps Script" untuk membuka editor script di Google Sheets.
+# 3. Salin dan tempelkan kode Apps Script ke dalam editor script.
+Kodenya sebagai berikut:
 function typeAndYear() {
   let ss = SpreadsheetApp.getActive();
-  let sheet = ss.getSheetByName('Penyebab Kematian di Indonesia yang Dilaporkan - Clean');
+  let sheet = ss.getSheetByName('Penyebab Kematian di Indonesia yang Dilaporkan - Clean.csv'); // Pastikan nama sheet yang disediakan dalam kode ("Penyebab Kematian di Indonesia yang Dilaporkan - Clean.csv") sesuai dengan nama sheet yang berisi data yang ingin diolah. Jika nama sheet tidak sesuai, gantilah dengan nama sheet yang benar.
   let numberRows = sheet.getDataRange().getNumRows();
   let numberCols = sheet.getLastColumn();
 
@@ -31,7 +29,7 @@ function typeAndYear() {
   years.sort((a, b) => a - b);
 
   // Create new sheet
-  let newSheet = ss.insertSheet('Kematian di Indonesia Berdasarkan Tahun dan Tipe ');
+  let newSheet = ss.insertSheet('Kematian Berdasarkan Tahun dan Tipe');
   newSheet.getRange('A1').setValue('Type');
   for (let i = 0; i < years.length; i++) {
     newSheet.getRange(1, i + 2).setValue(years[i]);
@@ -54,18 +52,9 @@ function typeAndYear() {
   }
 }
 
+# 4. Klik ikon save (disket) atau tekan "Ctrl + S" untuk menyimpan script.
+# 5. Jalankan fungsi typeAndYear() dengan cara menekan tombol "play" (ikon segitiga berjalan) di toolbar editor script. Ini akan memulai proses tabulasi silang.
+# 6. Setelah script selesai dijalankan, akan muncul tab baru bernama "Kematian Berdasarkan Tahun dan Tipe" dengan hasil tabulasi silang di dalamnya.
 
-4. kemudian pastikan tidak ada kesalahan sintaks pada kode skrip tersebut. Jika ada kesalahan, perbaiki sebelum menyimpannya.
-
-5. setelah memastikan tidak ada kesalahan, simpan skrip dengan menekan "Ctrl + S".
-
-6. kemudian klik tombol "jalankan"  untuk menjalankan fungsi dan tunggu proses eksekusi fungsi selesai. Setelah selesai, akan ada lembar kerja baru dengan nama "Kematian di Indonesia Berdasarkan Tahun dan Tipe" terbentuk.
-
-7. Lembar kerja baru tersebut akan berisi tabulasi silang data tentang penyebab dan jumlah kematian per tahun di Indonesia. Baris pertama akan berisi tipe-tipe penyebab kematian, sedangkan kolom pertama akan berisi tahun-tahun unik di mana laporan kematian dilaporkan.
-
-8. Berikut adalah hasil tabulasi silang data:
-| Type                              | 2000 | 2001 | 2002 | 2003 | 2004  | 2005 | 2006  | 2007 | 2008 | 2009 | 2010 | 2011 | 2012  | 2013 | 2014 | 2015 | 2016 | 2017  | 2018  | 2019  | 2020 | 2021 | 2022 |
-|-----------------------------------|------|------|------|------|-------|------|-------|------|------|------|------|------|-------|------|------|------|------|-------|-------|-------|------|------|------|
-| Bencana Alam                      | 0    | 0    | 0    | 0    | 166698| 1973 | 6960  | 562  | 262  | 1447 | 1306 | 172  | 174   | 0    | 0    | 215  | 442  | 169   | 3739  | 352   | 236  | 583  | 0    |
-| Bencana Non Alam dan Penyakit     | 339  | 324  | 435  | 633  | 54046 | 121063| 120104| 88713| 106035| 31661| 37922| 1967 | 1595  | 1145 | 1199 | 2096 | 2156 | 875   | 1212  | 14338 | 37823| 138519| 12876|
-| Bencana Sosial                   | 0    | 0    | 0    | 0    | 0     | 0    | 1     | 0    | 1    | 16   | 33   | 34   | 65    | 0    | 0    | 45   | 26   | 0     | 25    | 7     | 4    | 4    | 0    |
+Proses tabulasi silang dilakukan dengan mengumpulkan data dari sheet "Penyebab Kematian di Indonesia yang Dilaporkan - Clean.csv" dan menyusunnya dalam bentuk tabel 
+yang menghitung total kematian berdasarkan tahun dan tipe penyebab kematian. Hasilnya akan ditampilkan dalam sheet baru "Kematian Berdasarkan Tahun dan Tipe".
