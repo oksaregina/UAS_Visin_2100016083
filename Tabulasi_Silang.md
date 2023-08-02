@@ -1,5 +1,5 @@
-#Proses pembuatan tabulasi silang data tentang penyebab dan jumlah kematian per-tahun di Indonesia.
-
+## Proses pembuatan tabulasi silang data tentang penyebab dan jumlah kematian per-tahun di Indonesia.
+# Deskripsi Fungsi
 Berikut adalah penjelasan prosesnya:
 
 1. Buka Google Sheets menggunakan link yang diberikan [Data Kematian di Indonesia](https://www.kaggle.com/datasets/hendratno/cause-of-death-in-indonesia).
